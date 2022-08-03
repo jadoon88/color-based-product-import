@@ -1,0 +1,18 @@
+{
+    "name": "merrycode/color-based-product-import",
+    "description": "Color attribute based product import for WooCommerce",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MerryCode\\ColorBasedProductImport\\": "includes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Umair Khan Jadoon"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
