@@ -14,5 +14,8 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "squizlabs/php_codesniffer": "4.0.x-dev",
+        "friendsofphp/php-cs-fixer": "dev-master"
+    }
 }

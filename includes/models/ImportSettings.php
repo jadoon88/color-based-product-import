@@ -1,46 +1,60 @@
 <?php
 namespace MerryCode\ColorBasedProductImport\Models;
 
-//Defines model for ishark_import_settings wp_option
+// defines model for cbpi_import_settings wp_option
+use MerryCode\ColorBasedProductImport\Configs\Main;
 use MerryCode\ColorBasedProductImport\Core\AbstractModel;
 
 class ImportSettings extends AbstractModel
 {
-   public $wp_option_name;
-   public $autoload;
+    public string $WpOptionName;
+    public string $autoLoad;
 
-   public function __construct()
-   {
-	   //ToDo add this to config file
-       $this->wp_option_name="ishark_import_settings";
-       $this->autoload="no";
+    public function __construct()
+    {
+        $this->WpOptionName ="cbpi_import_settings";
+        $this->autoLoad     ="no";
 
-       $sub_options = [
+        $subOptions = [
            "upload_step" => 1,
            "upload_file" => "none",
            "rows_per_interval" => 2,
-           "color_attribute_name" => "Color",
+           "color_attribute_name" => Main::ATTRIBUTE_SLUG_COLOR_NAME,
            "offset" => 0,
            "upload_file" => "",
-           "status" => "idle",
- 
+           "status" => Main::IMPORT_STATUS_IDLE,
         ];
  
-        add_option( $this->wp_option_name, $sub_options, '', $this->autoload);
+        add_option($this->WpOptionName, $subOptions, '', $this->autoLoad);
+    }
 
-   }
-
-   public function get()
-   {
-      return get_option($this->wp_option_name);
-   }
-   public function update($array)
-   {
-      return update_option($this->wp_option_name, $array);
-   }
-   public function delete()
-   {
-      return delete_option($this->wp_option_name);
-   }
-
+    /**
+     * Gets import settings
+     *
+     * @return array
+     */
+    public function get() : array
+    {
+        return get_option($this->WpOptionName);
+    }
+    /**
+     * Updates import settings
+     *
+     * @param $array of settings
+     *
+     * @return bool
+     */
+    public function update($array) : bool
+    {
+        return update_option($this->WpOptionName, $array);
+    }
+    /**
+     * Deletes import settings
+     *
+     * @return bool
+     */
+    public function delete() : bool
+    {
+        return delete_option($this->WpOptionName);
+    }
 }

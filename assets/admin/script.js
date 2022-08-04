@@ -8,11 +8,9 @@ jQuery(document).ready(function(){
        form_data.append('delimiter', delimiter);
        form_data.append('file', file_data);
        form_data.append('action', 'file_upload');
-       form_data.append('security', ishark_file_handle.security);
-       console.log(file_data);
-
+       form_data.append('security', cbpi_file_handle.security);
             jQuery.ajax({
-                url: ishark_file_handle.ajaxurl,
+                url: cbpi_file_handle.ajaxurl,
                 type: 'POST',
                 contentType: false,
                 processData: false,

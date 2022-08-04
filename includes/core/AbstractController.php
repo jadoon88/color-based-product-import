@@ -1,14 +1,20 @@
 <?php
+
 namespace MerryCode\ColorBasedProductImport\Core;
 
-//All controllers must extend this class
-
+// all controllers must extend this class
 abstract class AbstractController
 {
     public function __construct()
     {
         //all actions and hooks should be initialized here
-        $this->register_hook_callbacks();
+        $this->registerCallBackHooks();
     }
-    abstract protected function register_hook_callbacks();
+
+    /**
+     * Registers callback hooks
+     *
+     * @return void
+     */
+    abstract protected function registerCallBackHooks() : void;
 }

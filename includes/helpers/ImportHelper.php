@@ -3,6 +3,7 @@
 namespace MerryCode\ColorBasedProductImport\Helpers;
 
 //Contains helper functions for the file importing functionality
+use MerryCode\ColorBasedProductImport\Configs\Main;
 use MerryCode\ColorBasedProductImport\Models\ImportSettings;
 
 class ImportHelper
@@ -57,7 +58,7 @@ class ImportHelper
                     echo "limit reached at:" . $limit . "<br>";
                     $ishark_settings["offset"] = $limit;
                     $settings_object->update($ishark_settings);
-                    wp_schedule_single_event(time(), 'ishark_products_import');
+                    wp_schedule_single_event(time(), Main::ACTION_PRODUCT_IMPORT);
                     return;
                 }
 
