@@ -16,6 +16,10 @@
     "minimum-stability": "dev",
     "require": {
         "squizlabs/php_codesniffer": "4.0.x-dev",
-        "friendsofphp/php-cs-fixer": "dev-master"
+        "friendsofphp/php-cs-fixer": "dev-master",
+        "yoast/phpunit-polyfills": "1.x-dev"
+    },
+    "require-dev": {
+        "brain/monkey": "^2.6"
     }
 }
