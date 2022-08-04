@@ -7,6 +7,7 @@ use MerryCode\ColorBasedProductImport\Core\AbstractController;
 use MerryCode\ColorBasedProductImport\Helpers\ImportHelper;
 use MerryCode\ColorBasedProductImport\Helpers\MainHelper;
 use MerryCode\ColorBasedProductImport\Models\ImportSettings;
+use WC_Data_Exception;
 
 class AdminController extends AbstractController
 {
@@ -37,14 +38,16 @@ class AdminController extends AbstractController
     }
 
 
-    /**
-     * Initiates the products import
-     *
-     * @return void
-     */
+	/**
+	 * Initiates the products import
+	 *
+	 * @return void
+	 *             
+	 * @throws WC_Data_Exception
+	 */
     public function productsImport() : void
     {
-        ImportHelper::import_products();
+        ImportHelper::importProducts();
     }
 
     /**
